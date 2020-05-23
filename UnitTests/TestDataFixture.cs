@@ -12,7 +12,8 @@ namespace UnitTests
 		public TestDataFixture()
 		{
 			var builder = new DbContextOptionsBuilder<StoreAppContext>()
-				.UseInMemoryDatabase();
+				.UseInMemoryDatabase(databaseName: "Test Database");
+
 			Context = new StoreAppContext(builder.Options);
 
 			Context.Products.Add(new Product
